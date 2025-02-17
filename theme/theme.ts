@@ -6,17 +6,52 @@ type NamedStyles<T> = {
 };
 
 const palette = {
-  gray: '#808080',
-  blue: '#007AFF',
-  darkGray: '#38434D',
-  white: '#FFFFFF',
-  black: '#000000',
-  purple: '#6366F1',
+  primaryWhite: '#FFFFFF',
+  primaryBlack: '#000000',
+  grey100: '',
+  grey200: '',
+  grey300: '',
+  grey400: '',
+  grey500: '',
+  grey600: '',
+  grey700: '',
+  grey800: '',
+  grey900: '',
+  error100: '',
+  error200: '',
+  error300: '',
+  error400: '',
+  error500: '',
+  error600: '',
+  error700: '',
+  error800: '',
+  error900: '',
+  succes100: '',
+  succes200: '',
+  succes300: '',
+  succes400: '',
+  succes500: '',
+  succes600: '',
+  succes700: '',
+  succes800: '',
+  succes900: '',
+  warning100: '',
+  warning200: '',
+  warning300: '',
+  warning400: '',
+  warning500: '',
+  warning600: '',
+  warning700: '',
+  warning800: '',
+  warning900: '',
 };
 
 const theme = createTheme({
   colors: {
     ...palette,
+  },
+  gradient: {
+    
   },
   spacing: {
     xs_4: 4,
