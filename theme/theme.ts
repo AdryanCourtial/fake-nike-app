@@ -55,10 +55,11 @@ const theme = createTheme({
   },
   spacing: {
     xs_4: 4,
-    s_8: 8,
-    sm_12: 12,
+    s_6: 6,
+    sm_8: 8,
     m_16: 16,
     ml_24: 24,
+    ml_28: 28,
     l_32: 32,
     xl_64: 64,
   },
