@@ -10,6 +10,7 @@ export default function TabsLayout() {
 
     const theme = useTheme()
 
+    const iconSize: number = 28
     return (
             <Tabs screenOptions={{
                 headerShown: false,
@@ -26,7 +27,7 @@ export default function TabsLayout() {
                     title: "Home",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <HomeSvgIcon width={24} height={24} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
+                            <HomeSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
                             <Text variant={ focused ? "xs_black" : "xs_regular"}> Home </Text>
                         </Box>
                     ),
@@ -35,7 +36,7 @@ export default function TabsLayout() {
                     title: "Shop",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <GlassesSearchSvgIcon width={24} height={24} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
+                            <GlassesSearchSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
                             <Text variant={ focused ? "xs_black" : "xs_regular"}> Shop </Text>
                         </Box>
                     ),
@@ -46,7 +47,7 @@ export default function TabsLayout() {
                     
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <HeartStraightSvgIcon width={24} height={24} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
+                            <HeartStraightSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
                             <Text variant={ focused ? "xs_black" : "xs_regular"}> Favourites </Text>
                         </Box>
                     ),
@@ -56,7 +57,7 @@ export default function TabsLayout() {
                     title: "Bag",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <BadSimpleSvgIcon width={24} height={24} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600} />
+                            <BadSimpleSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600} />
                             <Text variant={ focused ? "xs_black" : "xs_regular"}> Bag </Text>
                         </Box>
                     ),
@@ -66,7 +67,7 @@ export default function TabsLayout() {
                     title: "Profile",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <UsersSvgIcon width={24} height={24} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600 }/>
+                            <UsersSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600 }/>
                             <Text variant={ focused ? "xs_black" : "xs_regular"}> Profile </Text>
                         </Box>
                     ),

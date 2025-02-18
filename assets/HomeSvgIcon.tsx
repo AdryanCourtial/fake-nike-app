@@ -5,6 +5,7 @@ const HomeSvgIcon = (props: SvgProps) => (
     width={24}
     height={24}
     fill="none"
+    viewBox="00 00 24 24"
     {...props}
   >
     <G clipPath="url(#a)">

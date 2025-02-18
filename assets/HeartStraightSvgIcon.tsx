@@ -4,6 +4,7 @@ const HeartStraightSvgIcon = (props: SvgProps) => (
   <Svg
     width={24}
     height={24}
+    viewBox="00 00 24 24"
     fill="none"
     {...props}
   >
