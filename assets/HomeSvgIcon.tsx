@@ -9,7 +9,7 @@ const HomeSvgIcon = (props: SvgProps) => (
   >
     <G clipPath="url(#a)">
       <Path
-        stroke="#000"
+        stroke={props.color ?? "#767676"}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}

@@ -7,7 +7,7 @@ const BadSimpleSvgIcon = (props: SvgProps) => (
     fill="none"
     {...props}
   >
-    <G stroke="#767676" strokeWidth={2} clipPath="url(#a)">
+    <G stroke={props.color ?? "#767676"} strokeWidth={2} clipPath="url(#a)">
       <Path d="M8.147 4.5a2.5 2.5 0 0 1 2.5-2.5h4.47a2.324 2.324 0 0 1 0 4.647h-6.97V4.5Z" />
       <Path
         strokeLinecap="round"

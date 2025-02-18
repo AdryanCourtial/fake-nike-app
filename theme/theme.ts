@@ -50,6 +50,8 @@ const theme = createTheme({
     
   },
   spacing: {
+    none: 0,
+    xs_2: 2,
     xs_4: 4,
     s_6: 6,
     sm_8: 8,
@@ -133,7 +135,14 @@ const theme = createTheme({
     },
   },
   textVariants: {
-
+    xs_regular: {
+      fontSize: 12,
+      fontFamily: "HelveticaNowText-Regular"
+    },
+    xs_black: {
+      fontSize: 12,
+      fontFamily: "HelveticaNowText-Black"
+    },
     body: {
       fontSize: 16,
       fontFamily: "HelveticaNowText-Black"

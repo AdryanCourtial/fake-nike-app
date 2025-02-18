@@ -8,7 +8,7 @@ const UsersSvgIcon = (props: SvgProps) => (
     {...props}
   >
     <G
-      stroke="#767676"
+      stroke={props.color ?? "#767676"}
       strokeLinecap="round"
       strokeWidth={2}
       clipPath="url(#a)"
