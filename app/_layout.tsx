@@ -1,11 +1,17 @@
 import { ThemeProvider } from '@shopify/restyle';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
+import { useEffect } from 'react';
+import * as SplashScreen from 'expo-splash-screen';
 import { Box, Text, theme } from 'theme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
 
+  const insets = useSafeAreaInsets();
+  
   const [loaded, error] = useFonts({
     'HelveticaNowText-Black': require('../assets/fonts/HelveticaNowText-Black.ttf'),
     'HelveticaNowText-BlackItalic': require('../assets/fonts/HelveticaNowText-BlackItalic.ttf'),
@@ -25,11 +31,25 @@ export default function Layout() {
     'HelveticaNowText-ThinItalic': require('../assets/fonts/HelveticaNowText-ThinItalic.ttf'),
   });
   
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
+
+
   return (
     <ThemeProvider theme={theme}>
-        <Stack screenOptions={{
-          headerShown: false
-        }} />
-    </ThemeProvider>
-  );
+          <Stack screenOptions={{
+            headerShown: false,
+            contentStyle: {
+              paddingTop: insets.top,
+            }
+          }} />
+      </ThemeProvider>
+    );
 }

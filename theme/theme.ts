@@ -143,6 +143,14 @@ const theme = createTheme({
       fontSize: 12,
       fontFamily: "HelveticaNowText-Black"
     },
+    display_xl_medium: {
+      fontSize: 40,
+      fontFamily: "HelveticaNowText-Medium"
+    },
+    xxl_regular: {
+      fontSize: 20,
+      fontFamily: "HelveticaNowText-Regular"
+    },
     body: {
       fontSize: 16,
       fontFamily: "HelveticaNowText-Black"
