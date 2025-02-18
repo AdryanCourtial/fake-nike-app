@@ -133,19 +133,23 @@ const theme = createTheme({
     },
   },
   textVariants: {
+
     body: {
       fontSize: 16,
+      fontFamily: "HelveticaNowText-Black"
     },
-    title: { fontSize: 20, fontWeight: 'bold' },
+    title: { fontSize: 20, fontWeight: 'bold', fontFamily: "HelveticaNowText-Regular" },
     large: {
       fontSize: 36,
+      fontFamily: "HelveticaNowText-Regular"
     },
     extra_large: {
       fontSize: 64,
       fontWeight: 'bold',
+      fontFamily: "HelveticaNowText-Regular"
     },
     defaults: {
-      // We can define a default text variant here.
+      fontFamily: "HelveticaNowText-Regular",
     },
   },
 });
