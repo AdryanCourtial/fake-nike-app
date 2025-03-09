@@ -1,15 +1,17 @@
 import { ThemeProvider } from '@shopify/restyle';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { Box, Text, theme } from 'theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
 
+  const router = useRouter()
   const insets = useSafeAreaInsets();
   
   const [loaded, error] = useFonts({
@@ -34,6 +36,7 @@ export default function Layout() {
   useEffect(() => {
     if (loaded || error) {
       SplashScreen.hideAsync();
+      router.push('/(tabs)/home')
     }
   }, [loaded, error]);
 
@@ -48,7 +51,8 @@ export default function Layout() {
             headerShown: false,
             contentStyle: {
               paddingTop: insets.top,
-            }
+            },
+            autoHideHomeIndicator: false
           }} />
       </ThemeProvider>
     );

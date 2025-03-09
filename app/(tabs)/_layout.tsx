@@ -20,7 +20,8 @@ export default function TabsLayout() {
                     paddingVertical: 5
                 },
                 tabBarShowLabel: false,
-            }}>
+            }}
+            >
                 <Tabs.Screen 
                 name="home"  
                 options={{ 

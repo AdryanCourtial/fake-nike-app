@@ -1,11 +1,11 @@
-import { createTheme, useTheme as useRestyleTheme } from '@shopify/restyle';
+import { createTheme, ResponsiveValue, useTheme as useRestyleTheme } from '@shopify/restyle';
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 type NamedStyles<T> = {
   [P in keyof T]: ViewStyle | TextStyle | ImageStyle;
 };
 
-const palette = {
+export const palette = {
   primaryWhite: '#FFFFFF',
   primaryBlack: '#000000',
   grey100: '#F6F6F6',
@@ -43,6 +43,11 @@ const palette = {
 };
 
 const theme = createTheme({
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
+    largeScreen: 1024,
+  },
   colors: {
     ...palette,
   },
@@ -55,17 +60,24 @@ const theme = createTheme({
     xs_4: 4,
     s_6: 6,
     sm_8: 8,
+    m_12: 12,
     m_16: 16,
+    m_18: 18,
+    m_20: 20,
     ml_24: 24,
     ml_28: 28,
     l_32: 32,
+    l_35: 35,
+    l_40: 40,
     xl_64: 64,
   },
   borderRadii: {
     s_3: 3,
     m_6: 6,
+    m_8: 8,
     l_12: 12,
     xl_24: 24,
+    rounded: 100,
   },
   textSize: {
     fs_10: 10,
@@ -137,7 +149,7 @@ const theme = createTheme({
   textVariants: {
     xs_regular: {
       fontSize: 12,
-      fontFamily: "HelveticaNowText-Regular"
+      fontFamily: "HelveticaNowText-Regular",
     },
     xs_black: {
       fontSize: 12,
@@ -145,11 +157,29 @@ const theme = createTheme({
     },
     display_xl_medium: {
       fontSize: 40,
-      fontFamily: "HelveticaNowText-Medium"
+      fontFamily: "HelveticaNowText-Medium",
+      letterSpacing: -0.006,
+      lineHeight: 55
+    },
+    lg_regular: {
+      fontSize: 16,
+      fontFamily: "HelveticaNowText-Regular"
     },
     xxl_regular: {
-      fontSize: 20,
+      fontSize: 16,
       fontFamily: "HelveticaNowText-Regular"
+    },
+    xl_medium: {
+      fontSize: 16,
+      fontFamily: "HelveticaNowText-Medium"
+    },
+    xxl_medium : {
+      fontSize: 16,
+      fontFamily: "HelveticaNowText-Medium"
+    },
+    md_bold : {
+      fontSize: 14,
+      fontFamily: "HelveticaNowText-Bold"
     },
     body: {
       fontSize: 16,
@@ -184,4 +214,6 @@ export const makeStyles = <T extends NamedStyles<T> | NamedStyles<unknown>>(
 };
 
 export type Theme = typeof theme;
+export type TextVariants = keyof Theme['textVariants'];
+export type ColorVariants = keyof Theme['colors'];
 export default theme;

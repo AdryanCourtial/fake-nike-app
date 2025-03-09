@@ -1,4 +1,5 @@
-import { Stack, Link } from 'expo-router';
+import { Stack, Link, useRouter } from 'expo-router';
+import { useEffect } from 'react';
 
 import { Button } from '~/components/Button';
 import { Container } from '~/components/Container';
@@ -6,6 +7,9 @@ import { ScreenContent } from '~/components/ScreenContent';
 import { Text } from '~/theme';
 
 export default function Home() {
+
+  const router = useRouter()
+
   return (
     <>
       <Container>
