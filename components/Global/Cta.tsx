@@ -1,5 +1,5 @@
 import { Box, Text } from 'theme';
-import { Pressable } from 'react-native';
+import { Pressable, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { ColorVariants } from '~/theme/theme';
 import CarretDownSvgIcon from '~/assets/CarretDownSvgIcon';
@@ -17,7 +17,7 @@ export type Props = {
 export const Cta: React.FC<Props> = ({ children, action, backGroundColor, borderColor, image, positionImage, textColor }) => {
 
   return (
-  <Pressable
+  <TouchableOpacity
   onPress={action}>
     <Box
     flexDirection={positionImage === "before" ? "row-reverse" : "row"}
@@ -44,6 +44,6 @@ export const Cta: React.FC<Props> = ({ children, action, backGroundColor, border
         )
       }
     </Box>
-  </Pressable>
+  </TouchableOpacity>
   );
 };
