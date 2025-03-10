@@ -1,13 +1,12 @@
 import { useTheme } from '@shopify/restyle';
 import React from 'react';
-import { ImageBackground } from 'react-native';
 import { Dimensions, ImageBackground, SafeAreaView } from 'react-native';
 import { Box, Text } from 'theme';
 import { Cta } from '~/components/Global/Cta';
 import { LinearGradientA22 } from '~/components/Global/Gradient/LinearGradientA22';
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
 
-export default function IntroScreen() {
+export default function AccountS2() {
 
   const { screenHeight, screenWidth } = useDefaultSettingStore()
 

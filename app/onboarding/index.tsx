@@ -7,6 +7,11 @@ import ProgressBar from '~/components/Global/ProgressBar';
 import { Box } from '~/theme';
 import AccountSetupShoesSize from './account-setup';
 import { useStorage } from '~/core/storage';
+import AccountS2 from './accountS2';
+import AccountS3 from './accountS3';
+import AccountS4 from './accountS4';
+import AccountS5 from './accountS5';
+import AccountS6 from './accountS6';
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,11 +49,15 @@ export default function Onboarding() {
           >
           <Stack.Screen options={{ headerShown: false }} />
 
-          <WelcomeScreen />
+          <AccountS2 />
 
-          <IntroScreen />
+          <AccountS3 />
 
-          <AccountSetupShoesSize />
+          <AccountS4 />
+
+          <AccountS5 />
+
+          <AccountS6 />
           
         </ScrollView>
         </SafeAreaView>

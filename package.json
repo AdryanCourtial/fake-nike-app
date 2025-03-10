@@ -12,14 +12,12 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
-    "@react-native-async-storage/async-storage": "^2.1.2",
     "@react-navigation/native": "^7.0.3",
     "@shopify/restyle": "^2.4.2",
     "expo": "^52.0.35",
     "expo-constants": "~17.0.7",
     "expo-dev-client": "^5.0.12",
     "expo-device": "~7.0.2",
-    "expo-font": "~13.0.3",
     "expo-linking": "~7.0.5",
     "expo-notifications": "^0.29.13",
     "expo-router": "^3.1.0",
@@ -37,9 +35,8 @@
     "react-native-svg": "15.8.0",
     "react-native-web": "~0.19.10",
     "expo-font": "~13.0.3",
-    "zustand": "^5.0.3",
     "expo-linear-gradient": "~14.0.2",
-    "@react-native-async-storage/async-storage": "1.23.1"
+    "@react-native-async-storage/async-storage": "1.23.1",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
