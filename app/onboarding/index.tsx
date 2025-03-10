@@ -1,17 +1,15 @@
 import { Stack, useRouter } from 'expo-router';
-import React, { useState } from 'react';
-import { SafeAreaView, ScrollView, View } from 'react-native';
-import IntroScreen from './intro';
-import WelcomeScreen from './welcome';
+import React, { Component, useState } from 'react';
+import { SafeAreaView, ScrollView } from 'react-native';
 import ProgressBar from '~/components/Global/ProgressBar';
 import { Box } from '~/theme';
-import AccountSetupShoesSize from './account-setup';
-import { useStorage } from '~/core/storage';
+import AccountS1 from './accountS1';
 import AccountS2 from './accountS2';
 import AccountS3 from './accountS3';
 import AccountS4 from './accountS4';
 import AccountS5 from './accountS5';
 import AccountS6 from './accountS6';
+import WelcomeScreen from './welcome';
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,10 +22,20 @@ export default function Onboarding() {
     const index = Math.floor(contentOffsetX / pageWidth);
     setCurrentIndex(index);
 
-    if (index === 5) {
+    if (index === 6) {
       router.push('/home');
     }
   };
+
+
+  const ShowAccountSetup = [
+    <AccountS1 key={0} />,
+    <AccountS2 key={1} />,
+    <AccountS3 key={2} />,
+    <AccountS4 key={3} />,
+    <AccountS5 key={4} />,
+    <AccountS6 key={5} />
+  ]
 
   return (
     <Box flex={1} backgroundColor={'primaryBlack'}>
@@ -38,7 +46,11 @@ export default function Onboarding() {
           alignItems={'center'}
           height={40}
           >
-            <ProgressBar currentValue={currentIndex} maxValue={2} />
+            { currentIndex !== 0 ? (
+
+              <ProgressBar currentValue={currentIndex} maxValue={ShowAccountSetup.length} />
+            ) : null
+            }
           </Box>
         <ScrollView
           contentContainerStyle={{ flexGrow: 1 }}
@@ -49,15 +61,13 @@ export default function Onboarding() {
           >
           <Stack.Screen options={{ headerShown: false }} />
 
-          <AccountS2 />
+          <WelcomeScreen />
 
-          <AccountS3 />
-
-          <AccountS4 />
-
-          <AccountS5 />
-
-          <AccountS6 />
+          {
+            ShowAccountSetup.map((item) => (
+                  item
+            ))
+          }
           
         </ScrollView>
         </SafeAreaView>

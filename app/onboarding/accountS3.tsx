@@ -1,24 +1,43 @@
 import React from 'react';
-import { ImageBackground } from 'react-native';
-
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Cta } from '~/components/Global/Cta';
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
-import { Box } from '~/theme';
+import { Box, Text } from '~/theme';
 
 export default function AccountS3() {
   const { screenHeight, screenWidth } = useDefaultSettingStore();
+  const insets = useSafeAreaInsets()
 
   return (
-    <Box>
-      <ImageBackground
-        resizeMode="cover"
-        source={require('../../assets/intro.png')}
-        style={{
-          top: 0,
-          left: 0,
-          width: screenWidth,
-          height: screenHeight,
-        }}
-      />
+    <Box 
+    flex={1} 
+    height={screenHeight}
+    width={screenWidth}
+    padding={'m_16'}
+    >
+      <Text 
+      margin={'m_12'}
+      variant={'display_xxl_medium'} 
+      color={'primaryWhite'}
+      >
+        Stay in the know with notifications about First Access to product, invites to experiences, personalized offers, and order updated.
+      </Text>
+      <Box 
+      zIndex={2} 
+      elevation={2}
+      position={'absolute'}
+      bottom={100 + insets.bottom}
+      width={screenWidth}
+      justifyContent={'center'}
+      alignItems={'center'}
+      >
+        <Cta
+        backGroundColor={"primaryWhite"} 
+        width={190} 
+        textColor={"primaryBlack"}
+        borderColor={"primaryWhite"}>Next</Cta>
+      </Box>
+
     </Box>
   );
 }

@@ -1,65 +1,53 @@
 {
-  "expo": {
-    "platforms": ["ios", "android"],
-    "name": "fake-nike-app",
-    "slug": "fake-nike",
-    "version": "1.0.0",
-    "scheme": "fake-nike-app",
-    "web": {
-      "bundler": "metro",
-      "output": "static",
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-router",
-      "expo-font"
-    ],
-    "experiments": {
-      "typedRoutes": true,
-      "tsconfigPaths": true
-    },
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#00000"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-
-      "supportsTablet": true,
-      "bundleIdentifier": "n",
-      "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false,
-        "NSBluetoothAlwaysUsageDescription": "Cette application utilise Bluetooth pour vérifier votre emplacement dans le magasin Nike."
-      }
-    },
-    "android": {
-            "permissions": [
-        "BLUETOOTH",
-        "BLUETOOTH_ADMIN",
-        "ACCESS_FINE_LOCATION",
-        "android.permission.POST_NOTIFICATIONS"
+    "expo": {
+      "name": "fake-nike-app",
+      "slug": "fake-nike-app",
+      "version": "1.0.0",
+      "scheme": "fake-nike-app",
+      "web": {
+        "bundler": "metro",
+        "output": "static",
+        "favicon": "./assets/favicon.png"
+      },
+      "plugins": [
+        "expo-router",
+        "expo-font"
       ],
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+      "experiments": {
+        "typedRoutes": true,
+        "tsconfigPaths": true
+      },
+      "orientation": "portrait",
+      "icon": "./assets/icon.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
         "backgroundColor": "#00000"
       },
-      "package": "com.rago_3105.fakenike"
-    },
-    "newArchEnabled": true,
-    "extra": {
-      "router": {
-        "origin": false
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "supportsTablet": true,
+        "infoPlist": {
+            "NSBluetoothPeripheralUsageDescription": "To verify your location inside a Nike retail store, so you can use certain in-store Nike app features like product scanning, Self-Checkout and receive special location-based promotions.",
+            "NSLocationAlwaysUsageDescription": "This allows us to use your location to provide you with certain features like finding Nike stores near you and keeping you in the loop about Nike events and exclusive product releases. Enabling Bluetooth will verify your location in selected Nike stores to improve your experience.",
+            "NSUserNotificationAlertStyle": "Notifications may include alerts, sounds and icon badges. There can be configured in Settings."
+          }
       },
-      "eas": {
-        "projectId": "aa857005-7b7c-4540-b684-db45d625c28e"
-      }
-    },
-    "owner": "rago_3105"
+      "android": {
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#00000"
+        },
+        "permissions": [
+            "android.permission.ACCESS_FINE_LOCATION",
+            "android.permission.POST_NOTIFICATIONS",
+            "android.permission.BLUETOOTH"
+        ]
+      },
+      "newArchEnabled": true
+    }
   }
-}
+  

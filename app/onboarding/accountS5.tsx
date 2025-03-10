@@ -1,5 +1,7 @@
 import * as Notifications from 'expo-notifications';
 import React, { useEffect } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Cta } from '~/components/Global/Cta';
 
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
 import { Box, Text } from '~/theme';
@@ -26,17 +28,38 @@ export default function AccountS5() {
     requestNotificationPermission();
   }, []);
 
+  const insets = useSafeAreaInsets()
+
   return (
-    <Box
-      alignContent="center"
-      justifyContent="center"
-      backgroundColor="primaryBlack"
-      height={screenHeight}
-      width={screenWidth}>
-      <Text color="primaryWhite" variant="display_xl_medium">
-        Stay in the know with notifications about First Access to product, invites to experiences,
-        personalized offers, and order updates.
+    <Box 
+    flex={1} 
+    height={screenHeight}
+    width={screenWidth}
+    padding={'m_16'}
+    >
+      <Text 
+      margin={'m_12'}
+      variant={'display_xxl_medium'} 
+      color={'primaryWhite'}
+      >
+        How about Bluetooth? Turning it on will help verify your location in select Nike stores to improve your experience.
       </Text>
+      <Box 
+      zIndex={2} 
+      elevation={2}
+      position={'absolute'}
+      bottom={100 + insets.bottom}
+      width={screenWidth}
+      justifyContent={'center'}
+      alignItems={'center'}
+      >
+      <Cta
+        backGroundColor={"primaryWhite"} 
+        width={190} 
+        textColor={"primaryBlack"}
+        borderColor={"primaryWhite"}>Next</Cta>
+      </Box>
+
     </Box>
-  );
+  )
 }

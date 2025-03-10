@@ -6,7 +6,9 @@ interface DefaultSettings {
     screenHeight: number
 }
 
+// const insets = useSafeAreaInsets()
+
 export const useDefaultSettingStore = create<DefaultSettings>()(() => ({
   screenWidth: Dimensions.get('window').width,
-  screenHeight: Dimensions.get('window').height
+  screenHeight: Dimensions.get('window').height,
 }))

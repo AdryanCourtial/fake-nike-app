@@ -1,12 +1,8 @@
 import { ThemeProvider } from '@shopify/restyle';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect, useState } from 'react';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { Box, Text, theme } from 'theme';
-
-// SplashScreen.preventAutoHideAsync();
+import { useEffect } from 'react';
+import { theme } from 'theme';
 
 export default function Layout() {
   const router = useRouter();
@@ -29,8 +25,13 @@ export default function Layout() {
     'HelveticaNowText-ThinItalic': require('../assets/fonts/HelveticaNowText-ThinItalic.ttf'),
   });
 
+  useEffect(() => {
+    if (loaded || error) {
+
+    }
+  }, [loaded, error]);
+
   if (!loaded && !error) {
-    console.error(loaded, JSON.stringify(error));
     return null;
   }
 
