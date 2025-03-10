@@ -9,7 +9,7 @@ import WelcomeScreen from './welcome';
 export default function Onboarding() {
   return (
     <ScrollView
-    contentContainerStyle={{ flexGrow: 1 }}
+      contentContainerStyle={{ flexGrow: 1 }}
       horizontal
       pagingEnabled
       showsHorizontalScrollIndicator={false}>

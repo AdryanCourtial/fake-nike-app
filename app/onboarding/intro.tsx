@@ -7,11 +7,10 @@ import { useDefaultSettingStore } from '~/stores/defaultSetting';
 export default function IntroScreen() {
   const theme = useTheme();
 
-  const { screenHeight, screenWidth} = useDefaultSettingStore()
-
+    const { screenHeight, screenWidth } = useDefaultSettingStore()
 
   return (
-    <Box width={screenWidth}>
+    <Box>
       <ImageBackground
         resizeMode="cover"
         source={require('../../assets/intro.png')}

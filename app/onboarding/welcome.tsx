@@ -4,7 +4,7 @@ import { Box, Text } from '~/theme';
 
 const WelcomeScreen = () => {
 
-    const { screenHeight, screenWidth} = useDefaultSettingStore()
+    const { screenHeight, screenWidth } = useDefaultSettingStore()
   
   return (
     <Box alignContent="center" 
