@@ -36,6 +36,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#00000"
       }
-    }
+    },
+    "newArchEnabled": true
   }
 }

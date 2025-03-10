@@ -11,7 +11,6 @@ SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
 
-  const router = useRouter()
   const insets = useSafeAreaInsets();
 
   return (

@@ -33,16 +33,16 @@ export default function Layout() {
     'HelveticaNowText-ThinItalic': require('../assets/fonts/HelveticaNowText-ThinItalic.ttf'),
   });
   
-  useEffect(() => {
-    if (loaded || error) {
-      SplashScreen.hideAsync();
-      router.push('/(tabs)/home')
-    }
-  }, [loaded, error]);
+  // useEffect(() => {
+  //   if (loaded || error) {
+  //     SplashScreen.hideAsync();
+  //     router.push('/(tabs)/home')
+  //   }
+  // }, [loaded, error]);
 
-  if (!loaded && !error) {
-    return null;
-  }
+  // if (!loaded && !error) {
+  //   return null;
+  // }
 
 
   return (
