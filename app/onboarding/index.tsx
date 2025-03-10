@@ -5,6 +5,7 @@ import { ScrollView, View } from 'react-native';
 
 import IntroScreen from './intro';
 import WelcomeScreen from './welcome';
+import { Box } from '~/theme';
 
 export default function Onboarding() {
   return (
@@ -14,12 +15,11 @@ export default function Onboarding() {
       pagingEnabled
       showsHorizontalScrollIndicator={false}>
       <Stack.Screen options={{ headerShown: false }} />
-      <View>
-        <WelcomeScreen />
-      </View>
-      <View>
-        <IntroScreen />
-      </View>
+
+      <WelcomeScreen />
+
+      <IntroScreen />
+      
     </ScrollView>
   );
 }

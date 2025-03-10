@@ -1,7 +1,11 @@
+import { Dimensions } from 'react-native';
 import LogoScreen from '~/components/logocomponents';
 import { Box, Text } from '~/theme';
 
 const OnBoardingView = () => {
+
+    const screenWidth = Dimensions.get('window').width;
+
   return (
     <Box flex={1} alignContent="center" justifyContent="center" backgroundColor="primaryBlack">
       <LogoScreen width={70} height={24} />
