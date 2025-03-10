@@ -1,15 +1,20 @@
-// app/onboarding/index.tsx
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 
-import IntroScreen from './intro';
+import AccountS2 from './accountS2';
+import AccountS3 from './accountS3';
+import AccountS4 from './accountS4';
+import AccountS5 from './accountS5';
+import AccountS6 from './accountS6';
 import WelcomeScreen from './welcome';
 
 import ProgressBar from '~/components/Global/ProgressBar';
+import { Box } from '~/theme';
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter();
 
   const handleScroll = (event: any) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
@@ -17,11 +22,15 @@ export default function Onboarding() {
 
     const index = Math.floor(contentOffsetX / pageWidth);
     setCurrentIndex(index);
+
+    if (index === 5) {
+      router.push('/home');
+    }
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <ProgressBar currentValue={currentIndex} maxValue={2} />
+    <Box>
+      <ProgressBar currentValue={currentIndex + 1} maxValue={6} />
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         horizontal
@@ -31,8 +40,12 @@ export default function Onboarding() {
         scrollEventThrottle={5}>
         <Stack.Screen options={{ headerShown: false }} />
         <WelcomeScreen />
-        <IntroScreen />
+        <AccountS2 />
+        <AccountS3 />
+        <AccountS4 />
+        <AccountS5 />
+        <AccountS6 />
       </ScrollView>
-    </View>
+    </Box>
   );
 }

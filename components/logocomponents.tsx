@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+
 import { Box } from '~/theme';
 
 interface LogoScreenProps {
@@ -9,12 +10,8 @@ interface LogoScreenProps {
 
 const LogoScreen: React.FC<LogoScreenProps> = ({ width }) => {
   return (
-    <Box justifyContent='center' alignItems='center'>
-      <Image
-        source={require('../assets/nike-logo.png')}
-        style={{ width }}
-        resizeMode="contain"
-      />
+    <Box justifyContent="center" alignItems="center">
+      <Image source={require('../assets/nike-logo.png')} style={{ width }} resizeMode="contain" />
     </Box>
   );
 };

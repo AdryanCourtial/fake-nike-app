@@ -1,4 +1,4 @@
-import { createTheme, ResponsiveValue, useTheme as useRestyleTheme } from '@shopify/restyle';
+import { createTheme, useTheme as useRestyleTheme } from '@shopify/restyle';
 import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 type NamedStyles<T> = {
@@ -149,54 +149,54 @@ const theme = createTheme({
   textVariants: {
     xs_regular: {
       fontSize: 12,
-      fontFamily: "HelveticaNowText-Regular",
+      fontFamily: 'HelveticaNowText-Regular',
     },
     xs_black: {
       fontSize: 12,
-      fontFamily: "HelveticaNowText-Black"
+      fontFamily: 'HelveticaNowText-Black',
     },
     display_xl_medium: {
       fontSize: 40,
-      fontFamily: "HelveticaNowText-Medium",
+      fontFamily: 'HelveticaNowText-Medium',
       letterSpacing: -0.006,
-      lineHeight: 55
+      lineHeight: 55,
     },
     lg_regular: {
       fontSize: 16,
-      fontFamily: "HelveticaNowText-Regular"
+      fontFamily: 'HelveticaNowText-Regular',
     },
     xxl_regular: {
       fontSize: 16,
-      fontFamily: "HelveticaNowText-Regular"
+      fontFamily: 'HelveticaNowText-Regular',
     },
     xl_medium: {
       fontSize: 16,
-      fontFamily: "HelveticaNowText-Medium"
+      fontFamily: 'HelveticaNowText-Medium',
     },
-    xxl_medium : {
+    xxl_medium: {
       fontSize: 16,
-      fontFamily: "HelveticaNowText-Medium"
+      fontFamily: 'HelveticaNowText-Medium',
     },
-    md_bold : {
+    md_bold: {
       fontSize: 14,
-      fontFamily: "HelveticaNowText-Bold"
+      fontFamily: 'HelveticaNowText-Bold',
     },
     body: {
       fontSize: 16,
-      fontFamily: "HelveticaNowText-Black"
+      fontFamily: 'HelveticaNowText-Black',
     },
-    title: { fontSize: 20, fontWeight: 'bold', fontFamily: "HelveticaNowText-Regular" },
+    title: { fontSize: 20, fontWeight: 'bold', fontFamily: 'HelveticaNowText-Regular' },
     large: {
       fontSize: 36,
-      fontFamily: "HelveticaNowText-Regular"
+      fontFamily: 'HelveticaNowText-Regular',
     },
     extra_large: {
       fontSize: 64,
       fontWeight: 'bold',
-      fontFamily: "HelveticaNowText-Regular"
+      fontFamily: 'HelveticaNowText-Regular',
     },
     defaults: {
-      fontFamily: "HelveticaNowText-Regular",
+      fontFamily: 'HelveticaNowText-Regular',
     },
   },
 });

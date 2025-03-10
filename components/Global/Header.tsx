@@ -1,12 +1,16 @@
-import { Box } from "~/theme"
-import { Text } from "~/theme"
+import { Box, Text } from '~/theme';
 
 const HeaderMain = () => {
-    return (
-        <Box backgroundColor="error400" height={100} flex={1} justifyContent="center" alignItems="center">
-            <Text style={{ color: "#ffffff" }}> Salut </Text>
-        </Box>
-    )
-}
+  return (
+    <Box
+      backgroundColor="error400"
+      height={100}
+      flex={1}
+      justifyContent="center"
+      alignItems="center">
+      <Text style={{ color: '#ffffff' }}> Salut </Text>
+    </Box>
+  );
+};
 
-export default HeaderMain
+export default HeaderMain;

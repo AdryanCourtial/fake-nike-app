@@ -13,7 +13,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentValue, maxValue }) => 
   return (
     <Box
       backgroundColor="primaryBlack"
-      opacity={0.3}
+      opacity={1}
       height={10}
       borderRadius="m_6"
       overflow="hidden"

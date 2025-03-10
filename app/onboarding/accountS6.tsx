@@ -1,8 +1,7 @@
-import LogoScreen from '~/components/logocomponents';
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
 import { Box, Text } from '~/theme';
 
-const WelcomeScreen = () => {
+export default function AccountS6() {
   const { screenHeight, screenWidth } = useDefaultSettingStore();
 
   return (
@@ -12,10 +11,10 @@ const WelcomeScreen = () => {
       backgroundColor="primaryBlack"
       height={screenHeight}
       width={screenWidth}>
-      <LogoScreen width={70} />
-      <Text color="primaryWhite"> Hi John, Welcome to Nike. Thanks for becoming a Member!</Text>
+      <Text color="primaryWhite" fontSize={32} variant="display_xl_medium">
+        How about Bluetooth? Turning it on will help verify your location in select Nike stores to
+        improve your experience.
+      </Text>
     </Box>
   );
-};
-
-export default WelcomeScreen;
+}

@@ -1,7 +1,8 @@
 {
   "expo": {
+    "platforms": ["ios", "android"],
     "name": "fake-nike-app",
-    "slug": "fake-nike-app",
+    "slug": "fake-nike",
     "version": "1.0.0",
     "scheme": "fake-nike-app",
     "web": {
@@ -29,14 +30,36 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+
+      "supportsTablet": true,
+      "bundleIdentifier": "n",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSBluetoothAlwaysUsageDescription": "Cette application utilise Bluetooth pour vérifier votre emplacement dans le magasin Nike."
+      }
     },
     "android": {
+            "permissions": [
+        "BLUETOOTH",
+        "BLUETOOTH_ADMIN",
+        "ACCESS_FINE_LOCATION",
+        "android.permission.POST_NOTIFICATIONS"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#00000"
+      },
+      "package": "com.rago_3105.fakenike"
+    },
+    "newArchEnabled": true,
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "aa857005-7b7c-4540-b684-db45d625c28e"
       }
     },
-    "newArchEnabled": true
+    "owner": "rago_3105"
   }
 }

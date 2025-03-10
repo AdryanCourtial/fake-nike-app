@@ -1,13 +1,14 @@
 import { useTheme } from '@shopify/restyle';
 import React from 'react';
-import { Dimensions, ImageBackground } from 'react-native';
+import { ImageBackground } from 'react-native';
 import { Box, Text } from 'theme';
+
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
 
-export default function IntroScreen() {
+export default function AccountS2() {
   const theme = useTheme();
 
-    const { screenHeight, screenWidth } = useDefaultSettingStore()
+  const { screenHeight, screenWidth } = useDefaultSettingStore();
 
   return (
     <Box>
@@ -15,14 +16,13 @@ export default function IntroScreen() {
         resizeMode="cover"
         source={require('../../assets/intro.png')}
         style={{
-          position: 'absolute',
           top: 0,
           left: 0,
           width: screenWidth,
           height: screenHeight,
         }}
       />
-
+      {/* 
       <Box justifyContent="center" alignItems="center" zIndex={1} padding="l_32">
         <Text
           fontSize={theme.textSize.fs_18}
@@ -48,7 +48,7 @@ export default function IntroScreen() {
           }}>
           and connect you to sport, we've got a few questions for you.
         </Text>
-      </Box>
+      </Box> */}
     </Box>
   );
 }

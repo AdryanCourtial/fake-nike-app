@@ -6,7 +6,6 @@ import LogoScreen from '~/components/logocomponents';
 import SignUpScreen from '~/screens/signupscreen';
 
 export default function Home() {
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
