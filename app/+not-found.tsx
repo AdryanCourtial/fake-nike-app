@@ -12,7 +12,7 @@ export default function NotFoundScreen() {
       <Box flex={1} justifyContent="center" alignItems="center" padding="ml_24">
         <Text variant="title">This screen doesn't exist.</Text>
         <Link href="/" style={styles.link}>
-          <Text variant="body" color="primaryWhite">
+          <Text variant="body" color="error700">
             Go to home screen!
           </Text>
         </Link>
