@@ -1,5 +1,5 @@
 import { Stack, useRouter } from 'expo-router';
-import React, { Component, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import ProgressBar from '~/components/Global/ProgressBar';
 import { Box } from '~/theme';
@@ -10,21 +10,40 @@ import AccountS4 from './accountS4';
 import AccountS5 from './accountS5';
 import AccountS6 from './accountS6';
 import WelcomeScreen from './welcome';
+import { useStorage } from '~/core/storage';
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
+  const [onBoarding, setOnboarding] = useStorage("onBoarding")
 
+  useEffect(() => {
+
+    if (onBoarding === null) return;
+
+      console.log(currentIndex)
+      
+      if (currentIndex === 6) {
+        setOnboarding("true")
+        return
+      }
+
+  }, [onBoarding, currentIndex])
+
+  useEffect(() => {
+    if (onBoarding === "true") {
+      router.push('/home');
+    }
+  }, [onBoarding])
+
+  
   const handleScroll = (event: any) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
     const pageWidth = event.nativeEvent.layoutMeasurement.width;
-
+    
     const index = Math.floor(contentOffsetX / pageWidth);
     setCurrentIndex(index);
 
-    if (index === 6) {
-      router.push('/home');
-    }
   };
 
 
