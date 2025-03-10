@@ -7,6 +7,7 @@ export default function IntroScreen() {
   const theme = useTheme();
 
   const screenWidth = Dimensions.get('window').width;
+  const screenHeight = Dimensions.get('window').height;
 
   return (
     <Box flex={1}>
@@ -18,7 +19,7 @@ export default function IntroScreen() {
           top: 0,
           left: 0,
           width: screenWidth,
-          height: '100%',
+          height: screenHeight,
         }}
       />
 
