@@ -1,54 +1,61 @@
 import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { ImageBackground } from 'react-native';
+import { Dimensions, ImageBackground, SafeAreaView } from 'react-native';
 import { Box, Text } from 'theme';
-
+import { Cta } from '~/components/Global/Cta';
+import { LinearGradientA22 } from '~/components/Global/Gradient/LinearGradientA22';
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
 
-export default function AccountS2() {
-  const theme = useTheme();
+export default function IntroScreen() {
 
-  const { screenHeight, screenWidth } = useDefaultSettingStore();
+  const { screenHeight, screenWidth } = useDefaultSettingStore()
 
   return (
-    <Box>
-      <ImageBackground
-        resizeMode="cover"
-        source={require('../../assets/intro.png')}
-        style={{
-          top: 0,
-          left: 0,
-          width: screenWidth,
-          height: screenHeight,
-        }}
-      />
-      {/* 
-      <Box justifyContent="center" alignItems="center" zIndex={1} padding="l_32">
-        <Text
-          fontSize={theme.textSize.fs_18}
-          color="primaryWhite"
-          textAlign="center"
-          marginBottom="ml_28"
+      <Box backgroundColor={'primaryBlack'}>
+        <ImageBackground
+          resizeMode="cover"   
+          source={require('../../assets/intro.png')}
           style={{
-            width: screenWidth * 0.9,
-            flexWrap: 'wrap',
-            textAlign: 'center',
-          }}>
-          To personalize your experience
-        </Text>
-        <Text
-          fontSize={theme.textSize.fs_18}
-          color="primaryWhite"
-          textAlign="center"
-          marginBottom="l_32"
+            position: 'absolute',
+            width: screenWidth,
+            height: screenHeight,
+          }}
+        />
+        <SafeAreaView>
+
+        </SafeAreaView>
+        <Box 
+        justifyContent="center" 
+        alignItems="center" 
+        zIndex={2} 
+        padding="m_20"
+        elevation={2}>
+          <Text
+            marginTop={'m_12'}
+            color="primaryWhite"
+            variant={'display_xl_medium'}
+            style={{
+              width: screenWidth * 0.9,
+            }}>
+            {'To personalize your\nexperience and\nconnect you to sport,\n w\'ve got a few\nquestions for you.'}
+          </Text>
+        </Box>
+          <Box 
+          zIndex={2} 
+          elevation={2}
+          position={'absolute'}
+          bottom={0}
+          left={"50%"}
           style={{
-            width: screenWidth * 0.9,
-            flexWrap: 'wrap',
-            textAlign: 'center',
-          }}>
-          and connect you to sport, we've got a few questions for you.
-        </Text>
-      </Box> */}
-    </Box>
+            transform: [{
+              translateX: "-50%"
+            }]
+          }}
+          >
+            <Cta backGroundColor='primaryWhite' width={190} borderColor='primaryWhite'>Get Started</Cta>
+          </Box>
+          <LinearGradientA22 indexZ={1} />
+      </Box>
   );
 }

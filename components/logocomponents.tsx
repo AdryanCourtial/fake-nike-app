@@ -5,23 +5,28 @@ import { Box } from '~/theme';
 
 interface LogoScreenProps {
   width: number;
-  // height: number;
+  height: number;
 }
 
-const LogoScreen: React.FC<LogoScreenProps> = ({ width }) => {
+const LogoScreen: React.FC<LogoScreenProps> = ({ width, height }) => {
   return (
-    <Box justifyContent="center" alignItems="center">
-      <Image source={require('../assets/nike-logo.png')} style={{ width }} resizeMode="contain" />
-    </Box>
+      <Image
+        source={require('../assets/nike-logo.png')}
+        style={{ 
+          width,
+          height: height
+         }}
+        resizeMode="contain"
+      />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: 'center',
+  //   alignItems: 'center',
+  // },
 });
 
 export default LogoScreen;

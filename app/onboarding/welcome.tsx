@@ -1,3 +1,4 @@
+import { LinearGradientA22 } from '~/components/Global/Gradient/LinearGradientA22';
 import LogoScreen from '~/components/logocomponents';
 import { useDefaultSettingStore } from '~/stores/defaultSetting';
 import { Box, Text } from '~/theme';
@@ -6,14 +7,21 @@ const WelcomeScreen = () => {
   const { screenHeight, screenWidth } = useDefaultSettingStore();
 
   return (
-    <Box
-      alignContent="center"
-      justifyContent="center"
+    <Box>
+      <Box
+      alignContent="center" 
+      justifyContent="center" 
       backgroundColor="primaryBlack"
       height={screenHeight}
-      width={screenWidth}>
-      <LogoScreen width={70} />
-      <Text color="primaryWhite"> Hi John, Welcome to Nike. Thanks for becoming a Member!</Text>
+      width={screenWidth}
+      gap={'m_20'}
+      padding={'m_20'}
+      zIndex={2}
+      elevation={2}>
+        <LogoScreen width={70} height={50}/>
+        <Text color="primaryWhite" variant={"display_xl_medium"}>{'Hi John,\nWelcome to Nike.\nThanks for becoming\na Member!'}</Text>
+      </Box>
+        <LinearGradientA22 indexZ={1} />
     </Box>
   );
 };

@@ -1,16 +1,12 @@
 import { Stack, useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
-
-import AccountS2 from './accountS2';
-import AccountS3 from './accountS3';
-import AccountS4 from './accountS4';
-import AccountS5 from './accountS5';
-import AccountS6 from './accountS6';
+import { SafeAreaView, ScrollView, View } from 'react-native';
+import IntroScreen from './intro';
 import WelcomeScreen from './welcome';
-
 import ProgressBar from '~/components/Global/ProgressBar';
 import { Box } from '~/theme';
+import AccountSetupShoesSize from './account-setup';
+import { useStorage } from '~/core/storage';
 
 export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -29,23 +25,34 @@ export default function Onboarding() {
   };
 
   return (
-    <Box>
-      <ProgressBar currentValue={currentIndex + 1} maxValue={6} />
-      <ScrollView
-        contentContainerStyle={{ flexGrow: 1 }}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        onScroll={handleScroll}
-        scrollEventThrottle={5}>
-        <Stack.Screen options={{ headerShown: false }} />
-        <WelcomeScreen />
-        <AccountS2 />
-        <AccountS3 />
-        <AccountS4 />
-        <AccountS5 />
-        <AccountS6 />
-      </ScrollView>
+    <Box flex={1} backgroundColor={'primaryBlack'}>
+      <Box backgroundColor={'primaryBlack'}>
+        <SafeAreaView>
+          <Box 
+          justifyContent={'center'} 
+          alignItems={'center'}
+          height={40}
+          >
+            <ProgressBar currentValue={currentIndex} maxValue={2} />
+          </Box>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1 }}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onScroll={handleScroll}
+          >
+          <Stack.Screen options={{ headerShown: false }} />
+
+          <WelcomeScreen />
+
+          <IntroScreen />
+
+          <AccountSetupShoesSize />
+          
+        </ScrollView>
+        </SafeAreaView>
+      </Box>
     </Box>
   );
 }

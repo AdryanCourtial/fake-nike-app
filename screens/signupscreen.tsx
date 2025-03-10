@@ -1,75 +1,58 @@
 import { router } from 'expo-router';
 import React from 'react';
-import { Dimensions, ImageBackground, TouchableOpacity } from 'react-native';
+import { ImageBackground, TouchableOpacity } from 'react-native';
 import { Box, Text, useTheme } from 'theme';
+import { Cta } from '~/components/Global/Cta';
+import { LinearGradientA22 } from '~/components/Global/Gradient/LinearGradientA22';
 
 import LogoScreen from '~/components/logocomponents';
+import { useDefaultSettingStore } from '~/stores/defaultSetting';
 
 const SignUpScreen = () => {
   const theme = useTheme();
 
-  const screenHeight = Dimensions.get('window').height;
-  const screenWidth = Dimensions.get('window').width;
+  const { screenHeight, screenWidth } = useDefaultSettingStore()
 
   return (
-    <Box flex={1}>
+    <Box>
       <ImageBackground
         source={require('../assets/nike-woman-run.png')}
         style={{ flex: 1, width: screenWidth, height: screenHeight }}
         resizeMode="cover">
-        <Box flex={1} justifyContent="center">
-          <LogoScreen width={132} height={47} />
+        <Box 
+        padding={'ml_24'}
+        position={'absolute'}
+        bottom={40}
+        width={"100%"}
+        zIndex={2}
+        >
+          <Box
+          marginBottom={'l_48'}>
+            <LogoScreen width={70} height={40} />
+          </Box>
           <Text
             fontSize={theme.textSize.fs_28}
-            variant="title"
-            color="primaryWhite"
-            textAlign="left"
-            marginBottom="ml_28">
-            Nike App
-          </Text>
-          <Text
-            fontSize={theme.textSize.fs_28}
-            variant="body"
+            variant="display_xl_medium"
             color="primaryWhite"
             textAlign="left"
             marginBottom="l_32">
-            Bringing Nike Members the best products, inspiration, and stories in sport.
+            {'Nike App\nBringing Nike Members\nthe best products, inspiration, and stories\nin sport.'}
           </Text>
           <Box
-            height={51}
             flexDirection="row"
-            justifyContent="space-between"
             alignItems="center"
-            width={327}
-            marginBottom="l_32">
-            <TouchableOpacity onPress={() => router.push('/onboarding')}>
-              <Box
-                borderRadius="xxxl_100"
-                width={157}
-                backgroundColor="primaryWhite"
-                paddingVertical="m_16"
-                paddingHorizontal="l_51">
-                <Text textAlign="center" color="primaryBlack" fontSize={theme.textSize.fs_16}>
-                  Join Us
-                </Text>
+            gap={'m_12'}
+            >
+              <Box flex={1}>
+              <Cta backGroundColor='primaryWhite' borderColor='primaryWhite' action={() => router.push('/onboarding')}>Join Us</Cta>
+                </Box>
+              <Box flex={1}>
+                <Cta borderColor='primaryWhite' textColor='primaryWhite' action={() => router.push('/onboarding')}>Sign In</Cta>
               </Box>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => router.push('/onboarding')}>
-              <Box
-                borderRadius="xxxl_100"
-                borderColor="primaryWhite"
-                borderWidth={2}
-                width={157}
-                paddingVertical="m_16"
-                paddingHorizontal="l_51">
-                <Text textAlign="center" color="primaryWhite" fontSize={theme.textSize.fs_16}>
-                  Sign In
-                </Text>
-              </Box>
-            </TouchableOpacity>
           </Box>
         </Box>
       </ImageBackground>
+      <LinearGradientA22 indexZ={1} />
     </Box>
   );
 };
