@@ -10,7 +10,7 @@ export default function IntroScreen() {
   const screenHeight = Dimensions.get('window').height;
 
   return (
-    <Box flex={1} width={screenWidth}>
+    <Box width={screenWidth}>
       <ImageBackground
         resizeMode="cover"
         source={require('../../assets/intro.png')}
@@ -23,7 +23,7 @@ export default function IntroScreen() {
         }}
       />
 
-      <Box flex={1} justifyContent="center" alignItems="center" zIndex={1} padding="l_32">
+      <Box justifyContent="center" alignItems="center" zIndex={1} padding="l_32">
         <Text
           fontSize={theme.textSize.fs_18}
           color="primaryWhite"
