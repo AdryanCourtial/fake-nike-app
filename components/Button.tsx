@@ -11,7 +11,7 @@ export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps 
 
   return (
     <TouchableOpacity ref={ref} {...touchableProps} style={[styles.button, touchableProps.style]}>
-      <Text variant="body" textAlign="center" color="grey500" fontWeight="600">
+      <Text variant="body" textAlign="center" color="primaryWhite" fontWeight="600">
         {title}
       </Text>
     </TouchableOpacity>
@@ -21,13 +21,13 @@ export const Button = forwardRef<View, ButtonProps>(({ title, ...touchableProps 
 const useStyles = makeStyles((theme) => ({
   button: {
     alignItems: 'center',
-    backgroundColor: theme.colors.grey900,
+    backgroundColor: theme.colors.error200,
     borderRadius: theme.borderRadii.xl_24,
     elevation: 5,
     flexDirection: 'row',
     justifyContent: 'center',
     padding: theme.spacing.m_16,
-    shadowColor: theme.colors.error200,
+    shadowColor: theme.colors.primaryBlack,
     shadowOffset: {
       height: 2,
       width: 0,

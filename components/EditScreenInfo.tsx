@@ -10,7 +10,7 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
       <Text variant="body" lineHeight={24} textAlign="center">
         {title}
       </Text>
-      <Box borderRadius="s_3" paddingHorizontal="xs_4" marginVertical="s_8">
+      <Box borderRadius="s_3" paddingHorizontal="xs_4" marginVertical="m_16">
         <Text>{path}</Text>
       </Box>
       <Text variant="body" lineHeight={24} textAlign="center">

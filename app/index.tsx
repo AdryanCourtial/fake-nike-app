@@ -1,17 +1,27 @@
-import { Stack, Link } from 'expo-router';
+import { SplashScreen, Stack } from 'expo-router';
+import { useState, useEffect } from 'react';
 
-import LogoScreen from './logoscreen';
-
-import { Button } from '~/components/Button';
 import { Container } from '~/components/Container';
-import { ScreenContent } from '~/components/ScreenContent';
+import LogoScreen from '~/components/logocomponents';
+import SignUpScreen from '~/screens/signupscreen';
 
 export default function Home() {
+  SplashScreen.preventAutoHideAsync();
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
-      <Container>
-        <LogoScreen />
-      </Container>
+      <Stack.Screen options={{ headerShown: false }} />
+      <Container>{isLoading ? <LogoScreen width={132} height={47} /> : <SignUpScreen />}</Container>
     </>
   );
 }
