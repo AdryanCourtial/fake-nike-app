@@ -12,13 +12,12 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ currentValue, maxValue }) => 
 
   return (
     <Box
-      backgroundColor="primaryBlack"
-      opacity={0.3}
-      height={10}
+      backgroundColor="grey700"
+      height={4}
       borderRadius="m_6"
       overflow="hidden"
-      width="100%">
-      <Box height="100%" width={`${progress}%`} backgroundColor="primaryWhite" opacity={1} />
+      width={190}>
+      <Box height="100%" width={`${progress}%`} backgroundColor="primaryWhite" />
     </Box>
   );
 };

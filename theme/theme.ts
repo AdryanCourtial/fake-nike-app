@@ -67,6 +67,7 @@ const theme = createTheme({
     l_32: 32,
     l_35: 35,
     l_40: 40,
+    l_48: 48,
     l_51: 51,
     xl_64: 64,
   },
@@ -156,10 +157,14 @@ const theme = createTheme({
       fontFamily: "HelveticaNowText-Black"
     },
     display_xl_medium: {
-      fontSize: 40,
+      fontSize: 28,
       fontFamily: "HelveticaNowText-Medium",
-      letterSpacing: -0.006,
-      lineHeight: 55
+      lineHeight: 35
+    },
+    display_xxl_medium: {
+      fontSize: 32,
+      fontFamily: "HelveticaNowText-Medium",
+      lineHeight: 35
     },
     lg_regular: {
       fontSize: 16,

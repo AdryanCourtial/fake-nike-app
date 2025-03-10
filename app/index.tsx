@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <Container>{isLoading ? <LogoScreen width={132} /> : <SignUpScreen />}</Container>
+      <Container>{isLoading ? <LogoScreen width={132} height={47}/> : <SignUpScreen />}</Container>
     </>
   );
 }

@@ -10,15 +10,17 @@ export type Props = {
     textColor?: ColorVariants
     borderColor?: ColorVariants
     image?: React.ReactNode
+    width?: number
     action?: () => void
     positionImage?: "before" | "after"
 };
 
-export const Cta: React.FC<Props> = ({ children, action, backGroundColor, borderColor, image, positionImage, textColor }) => {
+export const Cta: React.FC<Props> = ({ children, action, backGroundColor, borderColor, image, positionImage, textColor, width }) => {
 
   return (
   <TouchableOpacity
-  onPress={action}>
+  onPress={action}
+  >
     <Box
     flexDirection={positionImage === "before" ? "row-reverse" : "row"}
     backgroundColor={backGroundColor}
@@ -29,7 +31,9 @@ export const Cta: React.FC<Props> = ({ children, action, backGroundColor, border
     alignContent={'center'} 
     justifyContent={'center'}
     gap={'m_12'}
-    paddingVertical={'m_20'}>
+    paddingVertical={'m_20'}
+    width={width ? width : null}
+    >
     
       <Text 
       textAlign={"center"} 
