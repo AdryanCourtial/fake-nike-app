@@ -1,20 +1,21 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+import { Box } from '~/theme';
 
 interface LogoScreenProps {
   width: number;
-  height: number;
+  // height: number;
 }
 
-const LogoScreen: React.FC<LogoScreenProps> = ({ width, height }) => {
+const LogoScreen: React.FC<LogoScreenProps> = ({ width }) => {
   return (
-    <View style={styles.container}>
+    <Box justifyContent='center' alignItems='center'>
       <Image
         source={require('../assets/nike-logo.png')}
-        style={{ width, height }}
+        style={{ width }}
         resizeMode="contain"
       />
-    </View>
+    </Box>
   );
 };
 

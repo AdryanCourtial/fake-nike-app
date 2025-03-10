@@ -2,15 +2,15 @@ import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { Dimensions, ImageBackground } from 'react-native';
 import { Box, Text } from 'theme';
+import { useDefaultSettingStore } from '~/stores/defaultSetting';
 
 export default function IntroScreen() {
   const theme = useTheme();
 
-  const screenWidth = Dimensions.get('window').width;
-  const screenHeight = Dimensions.get('window').height;
+    const { screenHeight, screenWidth } = useDefaultSettingStore()
 
   return (
-    <Box flex={1}>
+    <Box>
       <ImageBackground
         resizeMode="cover"
         source={require('../../assets/intro.png')}
@@ -23,7 +23,7 @@ export default function IntroScreen() {
         }}
       />
 
-      <Box flex={1} justifyContent="center" alignItems="center" zIndex={1} padding="l_32">
+      <Box justifyContent="center" alignItems="center" zIndex={1} padding="l_32">
         <Text
           fontSize={theme.textSize.fs_18}
           color="primaryWhite"
