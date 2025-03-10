@@ -6,9 +6,6 @@ import * as SplashScreen from 'expo-splash-screen';
 import { Box, Text, theme } from 'theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-
-SplashScreen.preventAutoHideAsync();
-
 export default function Layout() {
 
   const insets = useSafeAreaInsets();

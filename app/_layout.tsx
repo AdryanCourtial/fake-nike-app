@@ -1,58 +1,44 @@
 import { ThemeProvider } from '@shopify/restyle';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
 import { Box, Text, theme } from 'theme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
 
   const router = useRouter()
-  const insets = useSafeAreaInsets();
-  
   const [loaded, error] = useFonts({
     'HelveticaNowText-Black': require('../assets/fonts/HelveticaNowText-Black.ttf'),
-    'HelveticaNowText-BlackItalic': require('../assets/fonts/HelveticaNowText-BlackItalic.ttf'),
-    'HelveticaNowText-Bold': require('../assets/fonts/HelveticaNowText-Bold.ttf'),
-    'HelveticaNowText-BoldItalic': require('../assets/fonts/HelveticaNowText-BoldItalic.ttf'),
-    'HelveticaNowText-ExtBdIta': require('../assets/fonts/HelveticaNowText-ExtBdIta.ttf'),
-    'HelveticaNowText-ExtLtIta': require('../assets/fonts/HelveticaNowText-ExtLtIta.ttf'),
-    'HelveticaNowText-ExtraBold': require('../assets/fonts/HelveticaNowText-ExtraBold.ttf'),
-    'HelveticaNowText-ExtraLight': require('../assets/fonts/HelveticaNowText-ExtraLight.ttf'),
-    'HelveticaNowText-Light': require('../assets/fonts/HelveticaNowText-Light.ttf'),
-    'HelveticaNowText-LightItalic': require('../assets/fonts/HelveticaNowText-LightItalic.ttf'),
-    'HelveticaNowText-Medium': require('../assets/fonts/HelveticaNowText-Medium.ttf'),
-    'HelveticaNowText-MediumItalic': require('../assets/fonts/HelveticaNowText-MediumItalic.ttf'),
-    'HelveticaNowText-RegIta': require('../assets/fonts/HelveticaNowText-RegIta.ttf'),
-    'HelveticaNowText-Regular': require('../assets/fonts/HelveticaNowText-Regular.ttf'),
-    'HelveticaNowText-Thin': require('../assets/fonts/HelveticaNowText-Thin.ttf'),
-    'HelveticaNowText-ThinItalic': require('../assets/fonts/HelveticaNowText-ThinItalic.ttf'),
+    // 'HelveticaNowText-BlackItalic': require('../assets/fonts/HelveticaNowText-BlackItalic.ttf'),
+    // 'HelveticaNowText-Bold': require('../assets/fonts/HelveticaNowText-Bold.ttf'),
+    // 'HelveticaNowText-BoldItalic': require('../assets/fonts/HelveticaNowText-BoldItalic.ttf'),
+    // 'HelveticaNowText-ExtBdIta': require('../assets/fonts/HelveticaNowText-ExtBdIta.ttf'),
+    // 'HelveticaNowText-ExtLtIta': require('../assets/fonts/HelveticaNowText-ExtLtIta.ttf'),
+    // 'HelveticaNowText-ExtraBold': require('../assets/fonts/HelveticaNowText-ExtraBold.ttf'),
+    // 'HelveticaNowText-ExtraLight': require('../assets/fonts/HelveticaNowText-ExtraLight.ttf'),
+    // 'HelveticaNowText-Light': require('../assets/fonts/HelveticaNowText-Light.ttf'),
+    // 'HelveticaNowText-LightItalic': require('../assets/fonts/HelveticaNowText-LightItalic.ttf'),
+    // 'HelveticaNowText-Medium': require('../assets/fonts/HelveticaNowText-Medium.ttf'),
+    // 'HelveticaNowText-MediumItalic': require('../assets/fonts/HelveticaNowText-MediumItalic.ttf'),
+    // 'HelveticaNowText-RegIta': require('../assets/fonts/HelveticaNowText-RegIta.ttf'),
+    // 'HelveticaNowText-Regular': require('../assets/fonts/HelveticaNowText-Regular.ttf'),
+    // 'HelveticaNowText-Thin': require('../assets/fonts/HelveticaNowText-Thin.ttf'),
+    // 'HelveticaNowText-ThinItalic': require('../assets/fonts/HelveticaNowText-ThinItalic.ttf'),
   });
-  
-  // useEffect(() => {
-  //   if (loaded || error) {
-  //     SplashScreen.hideAsync();
-  //     router.push('/(tabs)/home')
-  //   }
-  // }, [loaded, error]);
 
-  // if (!loaded && !error) {
-  //   return null;
-  // }
-
+  if (!loaded && !error) {
+    console.error(loaded, JSON.stringify(error))
+    return null;
+  }
 
   return (
-    <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
           <Stack screenOptions={{
             headerShown: false,
-            contentStyle: {
-              paddingTop: insets.top,
-            },
-            autoHideHomeIndicator: false
           }} />
       </ThemeProvider>
     );
