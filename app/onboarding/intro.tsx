@@ -2,12 +2,13 @@ import { useTheme } from '@shopify/restyle';
 import React from 'react';
 import { Dimensions, ImageBackground } from 'react-native';
 import { Box, Text } from 'theme';
+import { useDefaultSettingStore } from '~/stores/defaultSetting';
 
 export default function IntroScreen() {
   const theme = useTheme();
 
-  const screenWidth = Dimensions.get('window').width;
-  const screenHeight = Dimensions.get('window').height;
+  const { screenHeight, screenWidth} = useDefaultSettingStore()
+
 
   return (
     <Box width={screenWidth}>

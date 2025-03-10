@@ -5,12 +5,11 @@ import { ScrollView, View } from 'react-native';
 
 import IntroScreen from './intro';
 import WelcomeScreen from './welcome';
-import { Box } from '~/theme';
 
 export default function Onboarding() {
   return (
     <ScrollView
-      contentContainerStyle={{ flexGrow: 1 }}
+    contentContainerStyle={{ flexGrow: 1 }}
       horizontal
       pagingEnabled
       showsHorizontalScrollIndicator={false}>
@@ -19,7 +18,7 @@ export default function Onboarding() {
       <WelcomeScreen />
 
       <IntroScreen />
-      
+
     </ScrollView>
   );
 }
