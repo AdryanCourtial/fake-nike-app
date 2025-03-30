@@ -1,4 +1,4 @@
-import { SplashScreen, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { useState, useEffect } from 'react';
 
 import { Container } from '~/components/Container';
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <Stack.Screen options={{ headerShown: false }} />
-      <Container>{isLoading ? <LogoScreen width={132} height={47}/> : <SignUpScreen />}</Container>
+      <Container>{isLoading ? <LogoScreen width={132} height={47} /> : <SignUpScreen />}</Container>
     </>
   );
 }

@@ -1,8 +1,11 @@
 import { ThemeProvider } from '@shopify/restyle';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { theme } from 'theme';
+
+const queryClient = new QueryClient();
 
 export default function Layout() {
   const router = useRouter();
@@ -27,7 +30,6 @@ export default function Layout() {
 
   useEffect(() => {
     if (loaded || error) {
-
     }
   }, [loaded, error]);
 
@@ -37,11 +39,13 @@ export default function Layout() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-        }}
-      />
+      <QueryClientProvider client={queryClient}>
+        <Stack
+          screenOptions={{
+            headerShown: false,
+          }}
+        />
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
