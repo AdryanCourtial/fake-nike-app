@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { fetchProduct } from '~/api/product';
+import { Product } from '~/interface/products.interface';
 
 export const useAllProductQuery = () => {
   return useQuery({
@@ -19,6 +20,6 @@ export const useShoesProductQuery = () => {
 export const useGetOneProduct = (id: number) => {
   return useQuery({
     queryKey: ['oneProduct'],
-    queryFn: () => fetchProduct.getOneProduct(id),
+    queryFn: () => fetchProduct.getOneProduct(id) as Promise<Product>,
   });
 };

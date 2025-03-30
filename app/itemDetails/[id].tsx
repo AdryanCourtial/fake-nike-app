@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useLocalSearchParams } from 'expo-router';
-import { Image, ScrollView } from 'react-native';
+import { useEffect, useState } from 'react';
+import { Image, Pressable, ScrollView } from 'react-native';
 
 import CarretDownSvgIcon from '~/assets/CarretDownSvgIcon';
 import HeartStraightSvgIcon from '~/assets/HeartStraightSvgIcon';
 import { Cta } from '~/components/Global/Cta';
-import { Product } from '~/interface/products.interface';
 import { useGetOneProduct } from '~/queries/useProductQueries';
 import { Box, Text } from '~/theme';
 
@@ -15,10 +15,14 @@ export default function itemDetails() {
 
   const { data, isLoading, error } = useGetOneProduct(id);
 
-  console.log(data);
-
   if (isLoading) return <Text>Chargement...</Text>;
   if (error) return <Text>Erreur : {error.message}</Text>;
+
+  useEffect(() => {
+    setimgChooseDiaporama(data?.images[0] ?? '');
+  }, [data?.images]);
+
+  const [imgChooseDiaporama, setimgChooseDiaporama] = useState<string>('');
 
   return (
     <>
@@ -26,7 +30,7 @@ export default function itemDetails() {
         <ScrollView>
           <Box>
             <Image
-              source={require('../../assets/homeImage1.png')}
+              src={imgChooseDiaporama}
               style={{
                 width: '100%',
                 height: 465,
@@ -39,58 +43,42 @@ export default function itemDetails() {
                 gap: 4,
               }}>
               <Box width="auto" height={160} flex={1} flexDirection="row" gap="xs_2">
-                <Image
-                  source={require('../../assets/homeImage1.png')}
-                  style={{
-                    aspectRatio: 1 / 1,
-                    height: 160,
-                    width: 160,
-                    resizeMode: 'cover',
-                  }}
-                />
-                <Image
-                  source={require('../../assets/homeImage1.png')}
-                  style={{
-                    aspectRatio: 1 / 1,
-                    height: 160,
-                    width: 160,
-                    resizeMode: 'cover',
-                  }}
-                />
-
-                <Image
-                  source={require('../../assets/homeImage1.png')}
-                  style={{
-                    aspectRatio: 1 / 1,
-                    height: 160,
-                    width: 160,
-                    resizeMode: 'cover',
-                  }}
-                />
+                {data?.images.map((value) => (
+                  <Pressable onPress={() => setimgChooseDiaporama(value)}>
+                    <Image
+                      src={value}
+                      style={{
+                        aspectRatio: 1 / 1,
+                        height: 160,
+                        width: 160,
+                        resizeMode: 'cover',
+                      }}
+                    />
+                  </Pressable>
+                ))}
               </Box>
             </ScrollView>
             <Box marginHorizontal="ml_24" marginVertical="l_35" height="auto" gap="l_32">
               <Box gap="m_16">
                 <Box gap="s_6">
                   <Text variant="xxl_regular" color="primaryBlack">
-                    Training Crew Socks
+                    {data?.category.name}
                   </Text>
                   <Text variant="display_xl_medium" color="primaryBlack">
-                    Nike Everyday Plus Cushioned
+                    {data?.title}
                   </Text>
                 </Box>
                 <Box>
                   <Text variant="xxl_medium" color="primaryBlack">
-                    US$10
+                    {'US$' + data?.price}
                   </Text>
                 </Box>
               </Box>
 
               <Box>
                 <Text variant="lg_regular" color="primaryBlack">
-                  {
-                    'The Nike Everyday Plus Cushioned Socks bring comfort to your workout with extra cushioning under the heel and forefoot and a snug, supportive arch band. Sweat-wicking power and breathability up top help keep your feet dry and cool to help push you through that extra set.\n\n     •  rShown: Multi-Color \n     •  Style: SX6897-965'
-                  }
+                  {data?.description +
+                    '\n\n     •  rShown: Multi-Color \n     •  Style: SX6897-965'}
                 </Text>
               </Box>
 
@@ -153,7 +141,7 @@ export default function itemDetails() {
               </Box>
             </Box>
           </Box>
-          <Text> {(data as Product).id} </Text>
+          <Text> {data?.id} </Text>
         </ScrollView>
       </Box>
     </>

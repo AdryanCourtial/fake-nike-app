@@ -56,13 +56,6 @@ const HomeScreen = () => {
                   {value.title}
                 </BoxItem>
               ))}
-
-              {/* <BoxItem id="1" price="185" widgth={200}>
-                Air Jordan XXXVI
-              </BoxItem>
-              <BoxItem id="2" price="185" widgth={200}>
-                Air Jordan XXXVI
-              </BoxItem> */}
             </ScrollView>
           </Box>
         </Box>
