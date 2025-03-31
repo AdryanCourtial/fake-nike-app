@@ -4,6 +4,9 @@ import { useFonts } from 'expo-font';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { theme } from 'theme';
+import 'react-native-reanimated'
+import 'react-native-gesture-handler'
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const queryClient = new QueryClient();
 
@@ -39,13 +42,15 @@ export default function Layout() {
 
   return (
     <ThemeProvider theme={theme}>
-      <QueryClientProvider client={queryClient}>
-        <Stack
-          screenOptions={{
-            headerShown: false,
-          }}
-        />
-      </QueryClientProvider>
+      <GestureHandlerRootView>
+        <QueryClientProvider client={queryClient}>
+          <Stack
+            screenOptions={{
+              headerShown: false,
+            }}
+          />
+        </QueryClientProvider>
+      </GestureHandlerRootView>
     </ThemeProvider>
   );
 }

@@ -1,37 +1,57 @@
 import { Href, Link } from 'expo-router';
+import { Skeleton } from 'moti/skeleton';
 import React from 'react';
-import { Image } from 'react-native';
-
+import { Image, Pressable } from 'react-native';
 import { Box, Text } from '~/theme';
+import { SpacingVariants } from '~/theme/theme';
+import MySkeleton from '../SkeletonLoading';
+import { windowWidth } from '~/utils/utils';
 
 interface Props {
   id: number;
   srcImage?: string;
-  widgth: number;
   price: number;
   children: string;
+  paddingHorizontalDescription?: SpacingVariants
+  isLoading: boolean
 }
 
-const BoxItem: React.FC<Props> = ({ widgth, children, price, srcImage, id }) => {
+const BoxItem: React.FC<Props> = ({ children, price, srcImage, id, paddingHorizontalDescription, isLoading }) => {
   return (
-    <Link href={('/itemDetails/' + id.toString()) as Href<string>}>
-      <Box width={315} flex={1} flexDirection="column" padding="ml_24" gap="m_20">
-        <Image
-          src={srcImage}
-          style={{
-            aspectRatio: 1 / 1,
-            width: '100%',
-          }}
-          // Pourquoi lorsque mon image deviens un source / src alors les tailles ne sont pas bonne ?
-        />
-        <Box flex={1} flexDirection="column" gap="m_16">
-          <Text variant="md_bold">{children}</Text>
-          <Text variant="md_bold" color="grey600">
-            {price}€
-          </Text>
-        </Box>
-      </Box>
-    </Link>
+    <Skeleton.Group show={isLoading}>
+      {
+      id ? (
+
+      <Link href={('/itemDetails/' + id.toString()) as Href<string>} asChild>
+        <Pressable style={{flex: 1}}>
+          <Box flex={1} gap="m_20">
+            <MySkeleton>
+              <Image
+                src={srcImage}
+                style={{
+                  aspectRatio: 1,
+                  width: windowWidth / 2,
+                }}
+                />
+            </MySkeleton>
+            <Box flex={1} gap="m_16" paddingHorizontal={paddingHorizontalDescription ?? "none"}>
+                <Box flex={1}>
+                  <MySkeleton>
+                    <Text variant="md_bold">{children}</Text>
+                  </MySkeleton>
+                </Box>
+              <MySkeleton>
+                <Text variant="md_bold" color="grey600">
+                  {price}€
+                </Text>
+              </MySkeleton>
+            </Box>
+          </Box>
+          </Pressable>
+      </Link>
+      ) : null
+      }
+    </Skeleton.Group>
   );
 };
 

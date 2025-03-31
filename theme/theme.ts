@@ -221,4 +221,6 @@ export const makeStyles = <T extends NamedStyles<T> | NamedStyles<unknown>>(
 export type Theme = typeof theme;
 export type TextVariants = keyof Theme['textVariants'];
 export type ColorVariants = keyof Theme['colors'];
+export type SpacingVariants = keyof Theme['spacing'];
+
 export default theme;

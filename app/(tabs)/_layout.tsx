@@ -5,6 +5,7 @@ import GlassesSearchSvgIcon from "~/assets/GlassesSearchSvgIcon";
 import HeartStraightSvgIcon from "~/assets/HeartStraightSvgIcon";
 import UsersSvgIcon from "~/assets/UsersSvgIcon";
 import { Box, Text, useTheme } from "~/theme";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function TabsLayout() {
 
@@ -75,5 +76,6 @@ export default function TabsLayout() {
                 }} />
 
             </Tabs>
+        
     )
 }

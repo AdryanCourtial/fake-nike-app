@@ -1,9 +1,8 @@
-import { Image, ScrollView } from 'react-native';
+import { FlatList, Image, ScrollView } from 'react-native';
 
 import BoxItem from '../../../components/Home/BoxItem';
 
 import usePixelDensity from '~/hook/usePixelDensity';
-import { Product } from '~/interface/products.interface';
 import { useShoesProductQuery } from '~/queries/useProductQueries';
 import { Box, Text } from '~/theme';
 
@@ -34,7 +33,6 @@ const HomeScreen = () => {
             resizeMode: 'cover',
           }}
         />
-        <Box>
           <Box paddingHorizontal="ml_24" paddingTop="l_40">
             <Text variant="xxl_medium" marginBottom="m_12">
               {' '}
@@ -44,20 +42,16 @@ const HomeScreen = () => {
               The latest arrivals from Nike
             </Text>
           </Box>
-          <Box>
-            <ScrollView horizontal>
-              {data.map((value: Product) => (
-                <BoxItem
-                  id={value.id}
-                  price={value.price}
-                  widgth={200}
-                  srcImage={value.images[0]}
-                  key={value.id}>
-                  {value.title}
-                </BoxItem>
-              ))}
-            </ScrollView>
-          </Box>
+          <Box >
+              <BoxItem
+                id={1}
+                price={67}
+                srcImage={"https://i.imgur.com/ZANVnHE.jpeg"}
+                key={1}
+                isLoading={isLoading}
+                >
+                {"Chaussure Nike Air Force"}
+              </BoxItem>
         </Box>
         <Image
           source={require('../../../assets/imageHome2.png')}

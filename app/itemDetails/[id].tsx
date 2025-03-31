@@ -13,16 +13,13 @@ export default function itemDetails() {
   const local = useLocalSearchParams();
   const id = Number(local.id);
 
-  const { data, isLoading, error } = useGetOneProduct(id);
-
-  if (isLoading) return <Text>Chargement...</Text>;
-  if (error) return <Text>Erreur : {error.message}</Text>;
+  const { data } = useGetOneProduct(id);
+  const [imgChooseDiaporama, setimgChooseDiaporama] = useState<string>('');
 
   useEffect(() => {
     setimgChooseDiaporama(data?.images[0] ?? '');
   }, [data?.images]);
 
-  const [imgChooseDiaporama, setimgChooseDiaporama] = useState<string>('');
 
   return (
     <>
@@ -44,7 +41,7 @@ export default function itemDetails() {
               }}>
               <Box width="auto" height={160} flex={1} flexDirection="row" gap="xs_2">
                 {data?.images.map((value) => (
-                  <Pressable onPress={() => setimgChooseDiaporama(value)}>
+                  <Pressable onPress={() => setimgChooseDiaporama(value)} key={value}>
                     <Image
                       src={value}
                       style={{
@@ -77,8 +74,7 @@ export default function itemDetails() {
 
               <Box>
                 <Text variant="lg_regular" color="primaryBlack">
-                  {data?.description +
-                    '\n\n     •  rShown: Multi-Color \n     •  Style: SX6897-965'}
+                  {data?.description}
                 </Text>
               </Box>
 
@@ -141,7 +137,6 @@ export default function itemDetails() {
               </Box>
             </Box>
           </Box>
-          <Text> {data?.id} </Text>
         </ScrollView>
       </Box>
     </>
