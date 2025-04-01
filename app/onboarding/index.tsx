@@ -18,11 +18,10 @@ export default function Onboarding() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
   const [onBoarding, setOnboarding] = useStorage('onBoarding');
+  
 
   useEffect(() => {
     if (onBoarding === null) return;
-
-    console.log(currentIndex);
 
     if (currentIndex === 6) {
       setOnboarding('true');
