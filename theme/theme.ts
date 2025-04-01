@@ -152,6 +152,10 @@ const theme = createTheme({
       fontSize: 12,
       fontFamily: 'HelveticaNowText-Regular',
     },
+    xs_bold: {
+      fontSize: 12,
+      fontFamily: 'HelveticaNowText-Bold',
+    },
     xs_black: {
       fontSize: 12,
       fontFamily: 'HelveticaNowText-Black',

@@ -42,16 +42,29 @@ const HomeScreen = () => {
               The latest arrivals from Nike
             </Text>
           </Box>
-          <Box >
+          <Box paddingLeft={'ml_24'}
+           paddingVertical={'m_20'}>
+            <FlatList
+            data={data}
+            horizontal
+            maxToRenderPerBatch={5}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              gap: 6
+            }}
+            renderItem={({ item }) => (
               <BoxItem
-                id={1}
-                price={67}
-                srcImage={"https://i.imgur.com/ZANVnHE.jpeg"}
-                key={1}
+                id={item.id}
+                price={item.price}
+                srcImage={item.images[0]}
+                key={item.id}
                 isLoading={isLoading}
                 >
                 {"Chaussure Nike Air Force"}
               </BoxItem>
+            )}>
+
+            </FlatList>
         </Box>
         <Image
           source={require('../../../assets/imageHome2.png')}

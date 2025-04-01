@@ -25,7 +25,7 @@ export const useGetOneProduct = (id: number) => {
 
 export const useAllProdutFromCategory = (id: number) => {
   return useQuery({
-    queryKey: ['oneProduct', id],
+    queryKey: ['ManyProductFromCategory', id],
     queryFn: () => fetchProduct.getProductByCategories(id),
   });
 };

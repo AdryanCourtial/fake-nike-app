@@ -6,10 +6,20 @@ import HeartStraightSvgIcon from "~/assets/HeartStraightSvgIcon";
 import UsersSvgIcon from "~/assets/UsersSvgIcon";
 import { Box, Text, useTheme } from "~/theme";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { ColorVariants, TextVariants } from "~/theme/theme";
+import { ResponsiveValue } from "@shopify/restyle";
 
 export default function TabsLayout() {
 
     const theme = useTheme()
+
+    const ColorText = (focused: boolean) => {
+        return focused ? theme.colors.primaryBlack : theme.colors.grey600
+    }
+
+    const VariantText = (focused: boolean) => {
+        return focused ? "xs_bold" : "xs_regular"
+    }
 
     const iconSize: number = 28
     return (
@@ -29,8 +39,8 @@ export default function TabsLayout() {
                     title: "Home",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <HomeSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
-                            <Text variant={ focused ? "xs_black" : "xs_regular"}> Home </Text>
+                            <HomeSvgIcon width={iconSize} height={iconSize} color={ColorText(focused)}/>
+                            <Text variant={VariantText(focused)}> Home </Text>
                         </Box>
                     ),
                 }} />
@@ -38,8 +48,8 @@ export default function TabsLayout() {
                     title: "Shop",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <GlassesSearchSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
-                            <Text variant={ focused ? "xs_black" : "xs_regular"}> Shop </Text>
+                            <GlassesSearchSvgIcon width={iconSize} height={iconSize} color={ColorText(focused)}/>
+                            <Text variant={VariantText(focused)}> Shop </Text>
                         </Box>
                     ),
                 }} />
@@ -49,8 +59,8 @@ export default function TabsLayout() {
                     
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <HeartStraightSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600}/>
-                            <Text variant={ focused ? "xs_black" : "xs_regular"}> Favourites </Text>
+                            <HeartStraightSvgIcon width={iconSize} height={iconSize} color={ColorText(focused)}/>
+                            <Text variant={VariantText(focused)}> Favourites </Text>
                         </Box>
                     ),
                 }} />
@@ -59,8 +69,8 @@ export default function TabsLayout() {
                     title: "Bag",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <BadSimpleSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600} />
-                            <Text variant={ focused ? "xs_black" : "xs_regular"}> Bag </Text>
+                            <BadSimpleSvgIcon width={iconSize} height={iconSize} color={ColorText(focused)} />
+                            <Text variant={VariantText(focused)}> Bag </Text>
                         </Box>
                     ),
                 }} />
@@ -69,8 +79,8 @@ export default function TabsLayout() {
                     title: "Profile",
                     tabBarIcon: ({ focused }) => (
                         <Box flex={1} justifyContent="center" alignItems="center">
-                            <UsersSvgIcon width={iconSize} height={iconSize} color={ focused ? theme.colors.primaryBlack : theme.colors.grey600 }/>
-                            <Text variant={ focused ? "xs_black" : "xs_regular"}> Profile </Text>
+                            <UsersSvgIcon width={iconSize} height={iconSize} color={ColorText(focused) }/>
+                            <Text variant={VariantText(focused)}> Profile </Text>
                         </Box>
                     ),
                 }} />

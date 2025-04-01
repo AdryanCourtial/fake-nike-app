@@ -48,7 +48,15 @@ export default function Layout() {
             screenOptions={{
               headerShown: false,
             }}
-          />
+          >
+
+            <Stack.Screen
+            name='modal'
+            options={{
+              presentation: 'modal',
+            }}
+            />
+          </Stack>
         </QueryClientProvider>
       </GestureHandlerRootView>
     </ThemeProvider>

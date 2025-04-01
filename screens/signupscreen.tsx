@@ -44,7 +44,7 @@ const SignUpScreen = () => {
             gap={'m_12'}
             >
               <Box flex={1}>
-              <Cta backGroundColor='primaryWhite' borderColor='primaryWhite' action={() => router.push('/onboarding')}>Join Us</Cta>
+              <Cta backGroundColor='primaryWhite' borderColor='primaryWhite' action={() => router.push('/(tabs)/home')}>Join Us</Cta>
                 </Box>
               <Box flex={1}>
                 <Cta borderColor='primaryWhite' textColor='primaryWhite' action={() => router.push('/onboarding')}>Sign In</Cta>

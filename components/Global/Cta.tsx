@@ -1,8 +1,7 @@
 import { Box, Text } from 'theme';
-import { Pressable, TouchableOpacity } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import React from 'react';
 import { ColorVariants } from '~/theme/theme';
-import CarretDownSvgIcon from '~/assets/CarretDownSvgIcon';
 
 export type Props = {
     children: string

@@ -10,7 +10,7 @@ const HeartStraightSvgIcon = (props: SvgProps) => (
   >
     <G clipPath="url(#a)">
       <Path
-        stroke={props.color ?? "#767676"}
+        stroke={props.color}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}

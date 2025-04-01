@@ -1,9 +1,4 @@
-import { ThemeProvider } from '@shopify/restyle';
-import { useFonts } from 'expo-font';
-import { Stack, useRouter } from 'expo-router';
-import { useEffect } from 'react';
-import * as SplashScreen from 'expo-splash-screen';
-import { Box, Text, theme } from 'theme';
+import { Stack } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Layout() {
@@ -17,6 +12,12 @@ export default function Layout() {
               paddingTop: insets.top,
             },
             autoHideHomeIndicator: false
-          }} />
+          }} >
+
+            <Stack.Screen name='modalSize' options={{
+              presentation: "transparentModal",
+              animation: "none"
+            }} />
+          </Stack>
     );
 }

@@ -5,6 +5,7 @@ import HeaderShop from "~/components/Shop/HeaderSearch"
 import ListProductCategory from "~/components/Shop/ListProductCategory"
 import { useAllCategories } from "~/queries/useCategoriesQueries"
 import { useAllProdutFromCategory } from "~/queries/useProductQueries"
+import SkeletonShopScreen from "~/screens/Skeleton/SkeletonShopScreen"
 import { Box } from "~/theme"
 import { GenerateFakeElementProduct } from "~/utils/fakeDataSkeleton"
 
@@ -32,14 +33,17 @@ const ShopScreen = () => {
                     categoryChoosed={categoryChoosed}
                     setCategoryChoosed={setCategoryChoosed}
                 />
-
-                <ListProductCategory
-                isLoading={allProductFromCategoryQuery.isLoading}
-                data={allProductFromCategoryQuery.data || GenerateFakeElementProduct(8)}
-                isError={!!allProductFromCategoryQuery.error}
-                categoryChoosed={categoryChoosed}
-                refetchData={() => allProductFromCategoryQuery.refetch()}
-                />
+                
+                {allProductFromCategoryQuery.data ? (
+                    <ListProductCategory
+                    isLoading={allProductFromCategoryQuery.isLoading}
+                    data={allProductFromCategoryQuery.data || GenerateFakeElementProduct(8)}
+                    isError={!!allProductFromCategoryQuery.error}
+                    categoryChoosed={categoryChoosed}
+                    refetchData={() => allProductFromCategoryQuery.refetch()}
+                    />
+                ) : <SkeletonShopScreen />
+                }
 
             </SafeAreaView> 
         </Box>
